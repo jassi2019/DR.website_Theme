@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>About Us | Dr. Kathuria's Dentistry – East of Kailash Delhi</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+    @media(max-width:700px){.team-grid{grid-template-columns:1fr}}
+    .about-story { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    @media(max-width:800px){.about-story{grid-template-columns:1fr}}
+    .certs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media(max-width:700px){.certs-grid{grid-template-columns:1fr 1fr}}
+    .cert-card { background: var(--white); border-radius: var(--radius); padding: 30px; text-align: center; box-shadow: var(--shadow); transition: all .3s; border-top: 4px solid var(--teal); }
+    .cert-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-l); }
+    .cert-card i { font-size: 2.2rem; color: var(--teal); margin-bottom: 14px; }
+    .cert-card h4 { font-size: .95rem; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+    .cert-card p  { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+    .countries-band { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-l) 100%); padding: 100px 5%; color: var(--white); }
+    .countries-wrap { display: grid; grid-template-columns: auto 1fr; gap: 70px; align-items: center; }
+    @media(max-width:800px){.countries-wrap{grid-template-columns:1fr}}
+    .c-globe { font-size: 9rem; text-align: center; animation: floatGlobe 4s ease-in-out infinite; }
+    @keyframes floatGlobe{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+    .celebrity-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media(max-width:700px){.celebrity-row{grid-template-columns:1fr 1fr}}
+    @media(max-width:440px){.celebrity-row{grid-template-columns:1fr}}
+    .celeb-card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); text-align: center; transition: all .3s; }
+    .celeb-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-l); }
+    .celeb-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 14px; border: 3px solid var(--teal); }
+    .celeb-card h5 { font-weight: 700; font-size: .95rem; margin-bottom: 4px; color: var(--navy); }
+    .celeb-role { font-size: .76rem; color: var(--teal); font-weight: 700; margin-bottom: 10px; }
+    .celeb-card p { font-size: .8rem; color: var(--muted); line-height: 1.55; font-style: italic; }
+    .tl-item { position: relative; padding: 0 0 28px 30px; border-left: 2px solid var(--border); }
+    .tl-item::before { content: attr(data-year); position: absolute; left: -45px; top: 0; background: var(--teal); color: var(--white); font-size: .7rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
+    .tl-item::after { content: ''; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--teal); }
+    .tl-item h4 { font-size: .94rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .tl-item p { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+    .timeline { padding-left: 48px; }
+    .counts-inline { display: flex; gap: 30px; margin-top: 36px; flex-wrap: wrap; }
+    .counts-inline .ci-item { text-align: center; }
+    .counts-inline .ci-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--gold-l); display: block; }
+    .counts-inline .ci-lbl { font-size: .82rem; color: rgba(255,255,255,.7); }
+  </style>
+</head>
+<body>
+<div id="page-loader"><div class="loader-inner"><div class="tooth">🦷</div><p>Loading…</p></div></div>
+<div class="cursor-glow"></div>
+
+<nav class="site-nav" id="mainNav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-mark"><i class="fas fa-tooth"></i></div>
+      <div class="logo-text"><strong>Dr. Kathuria's Dentistry</strong><span>East of Kailash, New Delhi</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About <i class="fas fa-chevron-down chevron"></i></a>
+        <div class="nav-dropdown">
+          <a href="#team"><i class="fas fa-user-md"></i>Our Doctors</a>
+          <a href="#certifications"><i class="fas fa-certificate"></i>Certifications</a>
+          <a href="#timeline"><i class="fas fa-history"></i>Our Journey</a>
+        </div>
+      </li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="cases.html">Cases</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:18001177272"><i class="fas fa-phone-alt"></i> 1800-11-7272</a>
+      <button class="nav-cta" onclick="document.getElementById('floatPanel').classList.add('open')"><i class="fas fa-calendar-check"></i> Book Free Consult</button>
+    </div>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="about.html"><i class="fas fa-user-md"></i> About Us</a>
+  <a href="services.html"><i class="fas fa-tooth"></i> Services</a>
+  <a href="cases.html"><i class="fas fa-images"></i> Cases</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  <a href="contact.html" class="mobile-cta"><i class="fas fa-calendar-check"></i> Book Free Consultation</a>
+</div>
+
+<div class="page-hero">
+  <img class="page-hero-img" src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=1920&q=85" alt="About Dr Kathuria"/>
+  <div class="page-hero-overlay" style="background:linear-gradient(135deg,rgba(15,34,72,.92) 0%,rgba(0,100,140,.5) 100%)"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>About</span></div>
+    <h1>About <em>Dr. Kathuria's</em><br/>Dentistry</h1>
+    <p>18+ years of excellence at E-143, East of Kailash, New Delhi. NABH Accredited · ISO Certified · Trusted by patients from 44+ countries.</p>
+  </div>
+</div>
+
+<!-- OUR STORY -->
+<section>
+  <div class="container">
+    <div class="about-story">
+      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=85" alt="Dr Kathuria Clinic" style="border-radius:var(--radius);box-shadow:var(--shadow-l)" class="reveal left"/>
+      <div class="reveal right">
+        <div class="sec-h">
+          <div class="sec-chip"><i class="fas fa-book-open"></i> Our Story</div>
+          <div class="sec-divider"></div>
+          <h2>Delhi's Most <em>Trusted</em> Dental Destination</h2>
+          <p>Founded by Dr. Sween Kathuria (B.D.S., M.D.S., F.P.F.A. USA) and Dr. Puneet Kathuria (B.D.S., M.D.S., F.I.C.O.I. USA), our clinic has been transforming smiles since 2006.</p>
+        </div>
+        <p style="color:var(--muted);line-height:1.8;margin-bottom:20px">From a single consultation room to a state-of-the-art multi-speciality dental centre, we have grown by letting results speak for themselves. NDTV named us one of the <strong>5 Best Dental Clinics in Delhi</strong>. We are <strong>Femina Miss India's Smile Care Partner</strong> and have served over 15,000 patients from 44+ countries.</p>
+        <p style="color:var(--muted);line-height:1.8;margin-bottom:28px">We hold a University of Louisville (USA) tie-up for sterilisation monitoring, follow ADA standards, and are OSHA compliant — the same standards upheld by the world's best dental practices.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a href="contact.html" class="btn btn-navy"><i class="fas fa-calendar-check"></i> Book Consultation</a>
+          <a href="services.html" class="btn btn-outline-navy"><i class="fas fa-tooth"></i> View Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-box reveal up d1"><span class="stat-num" data-target="15000" data-suffix="+">0</span><p>Happy Patients</p></div>
+  <div class="stat-box reveal up d2"><span class="stat-num" data-target="44" data-suffix="+">0</span><p>Countries Served</p></div>
+  <div class="stat-box reveal up d3"><span class="stat-num" data-target="18" data-suffix="+">0</span><p>Years Experience</p></div>
+  <div class="stat-box reveal up d4"><span class="stat-num" data-decimal="4.8">0</span><p>Google Rating ★</p></div>
+  <div class="stat-box reveal up" style="transition-delay:.5s"><span class="stat-num" data-target="50" data-suffix="+">0</span><p>Treatments</p></div>
+</div>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="container">
+    <div class="sec-h center reveal up">
+      <div class="sec-chip"><i class="fas fa-user-md"></i> Our Doctors</div>
+      <div class="sec-divider"></div>
+      <h2>Meet the <em>Specialists</em></h2>
+      <p>Our team of internationally trained, USA-certified specialist dentists.</p>
+    </div>
+    <div class="team-grid">
+      <div class="doctor-card reveal up d1">
+        <div class="dr-img">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=85" alt="Dr. Sween Kathuria"/>
+          <div class="dr-avail"><div class="dot"></div> Available Today</div>
+        </div>
+        <div class="dr-body">
+          <h4>Dr. Sween Kathuria</h4>
+          <div class="dr-title">Endodontist &amp; Cosmetic Dentist</div>
+          <div class="dr-quals">B.D.S. · M.D.S. · F.P.F.A. (USA) — Fellow of the Pierre Fauchard Academy, USA</div>
+          <p class="dr-bio">Specialist in painless root canal therapy, cosmetic dentistry and full smile makeovers using microscope-assisted techniques. Attended the 33rd IAACD Conference in New Delhi.</p>
+          <div class="dr-social">
+            <a href="#" class="dr-soc"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/drkathuriasdentistry" class="dr-soc"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/919810936360" class="dr-soc"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card reveal up d2">
+        <div class="dr-img">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=85" alt="Dr. Puneet Kathuria"/>
+          <div class="dr-avail"><div class="dot"></div> Available Today</div>
+        </div>
+        <div class="dr-body">
+          <h4>Dr. Puneet Kathuria</h4>
+          <div class="dr-title">Prosthodontist &amp; Oral Implantologist</div>
+          <div class="dr-quals">B.D.S. · M.D.S. · F.I.C.O.I. (USA) — Fellow of the International Congress of Oral Implantologists</div>
+          <p class="dr-bio">Expert in dental implants, full mouth rehabilitation and digital dentistry. Delivered a lecture on digital dentistry in occlusion at the ISOI Conference. Trained at Ivoclar Academy, Liechtenstein.</p>
+          <div class="dr-social">
+            <a href="#" class="dr-soc"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/drkathuriasdentistry" class="dr-soc"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/919810936360" class="dr-soc"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR JOURNEY TIMELINE -->
+<section id="timeline" class="bg-off">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start">
+      <div class="reveal left">
+        <div class="sec-h">
+          <div class="sec-chip"><i class="fas fa-history"></i> Our Journey</div>
+          <div class="sec-divider"></div>
+          <h2>18 Years of <em>Excellence</em></h2>
+        </div>
+        <div class="timeline">
+          <div class="tl-item" data-year="2006"><h4>Clinic Founded</h4><p>Dr. Kathuria's Dentistry opens at E-143, East of Kailash, New Delhi with a vision to deliver international-quality dental care in India.</p></div>
+          <div class="tl-item" data-year="2010"><h4>NABH Accreditation</h4><p>Became one of the first dental clinics in Delhi to receive NABH accreditation — the gold standard in Indian healthcare quality.</p></div>
+          <div class="tl-item" data-year="2014"><h4>CEREC &amp; Digital Dentistry</h4><p>Invested in CEREC chairside scanners and DTX Implant Studio — bringing same-day ceramic crowns and 3D implant planning to Delhi.</p></div>
+          <div class="tl-item" data-year="2018"><h4>Femina Miss India Partner</h4><p>Selected as the official Smile Care Partner for Femina Miss India — a recognition of our cosmetic dentistry excellence.</p></div>
+          <div class="tl-item" data-year="2020"><h4>Teledentistry Launch</h4><p>Launched video consultation service — enabling patients worldwide to access specialist dental advice from home.</p></div>
+          <div class="tl-item" data-year="2024"><h4>44 Countries &amp; Counting</h4><p>Now serving patients from 44+ countries. 15,000+ happy patients. 4.8 Google rating. NDTV's 5 Best Dental Clinics in Delhi.</p></div>
+        </div>
+      </div>
+      <div class="reveal right">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&q=85" alt="Dr Kathuria Journey" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-l)"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="sec-h center reveal up">
+      <div class="sec-chip"><i class="fas fa-certificate"></i> Accreditations</div>
+      <div class="sec-divider"></div>
+      <h2>Certified &amp; <em>Accredited</em></h2>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card reveal up d1"><i class="fas fa-award"></i><h4>NABH Accredited</h4><p>National Accreditation Board for Hospitals — the gold standard in Indian healthcare quality.</p></div>
+      <div class="cert-card reveal up d2"><i class="fas fa-certificate"></i><h4>ISO Certified</h4><p>International Organisation for Standardisation certification for dental clinic quality management.</p></div>
+      <div class="cert-card reveal up d3"><i class="fas fa-university"></i><h4>University of Louisville USA</h4><p>Tie-up for sterilisation monitoring — ensuring hospital-grade infection control protocols.</p></div>
+      <div class="cert-card reveal up d1"><i class="fas fa-shield-alt"></i><h4>ADA Standards</h4><p>Follows American Dental Association standards for treatment protocols and material quality.</p></div>
+      <div class="cert-card reveal up d2"><i class="fas fa-hard-hat"></i><h4>OSHA Compliant</h4><p>Occupational Safety and Health Administration compliant for workplace safety and patient protection.</p></div>
+      <div class="cert-card reveal up d3"><i class="fas fa-crown"></i><h4>Femina Miss India</h4><p>Official Smile Care Partner for Femina Miss India — India's most prestigious beauty pageant.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CELEBRITY PATIENTS -->
+<section class="bg-off">
+  <div class="container">
+    <div class="sec-h center reveal up">
+      <div class="sec-chip"><i class="fas fa-star"></i> Celebrity Smiles</div>
+      <div class="sec-divider"></div>
+      <h2>Trusted by <em>Celebrities</em> &amp; VIPs</h2>
+      <p>National champions, celebrity chefs, TV personalities, diplomats and international stars trust Dr. Kathuria's Dentistry.</p>
+    </div>
+    <div class="celebrity-row">
+      <div class="celeb-card reveal up d1">
+        <img class="celeb-img" src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?w=200&q=85" alt="Balajee Singh"/>
+        <h5>Balajee Singh</h5>
+        <div class="celeb-role">National Shooting Champion, India</div>
+        <p>"Dr. Kathuria gave me the confidence to compete with a perfect smile."</p>
+      </div>
+      <div class="celeb-card reveal up d2">
+        <img class="celeb-img" src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=200&q=85" alt="Chef Nita Mehta"/>
+        <h5>Chef Nita Mehta</h5>
+        <div class="celeb-role">Celebrity Chef &amp; Cookbook Author</div>
+        <p>"My smile on TV gets noticed constantly — all thanks to Dr. Kathuria."</p>
+      </div>
+      <div class="celeb-card reveal up d3">
+        <img class="celeb-img" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&q=85" alt="Dr Christine Burnett"/>
+        <h5>Dr. Christine Burnett</h5>
+        <div class="celeb-role">Medical Professional, UK</div>
+        <p>"As a doctor I am very demanding. This clinic exceeded every single standard."</p>
+      </div>
+      <div class="celeb-card reveal up d1">
+        <img class="celeb-img" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=200&q=85" alt="Donald Barr"/>
+        <h5>Donald Barr</h5>
+        <div class="celeb-role">High Commission of Canada</div>
+        <p>"Staff at the Canadian High Commission have been patients here for years. Exceptional."</p>
+      </div>
+      <div class="celeb-card reveal up d2">
+        <img class="celeb-img" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&q=85" alt="Vera Fritsch"/>
+        <h5>Vera Fritsch</h5>
+        <div class="celeb-role">Embassy of Austria</div>
+        <p>"Consistently excellent care, immaculate hygiene and wonderful doctors."</p>
+      </div>
+      <div class="celeb-card reveal up d3">
+        <img class="celeb-img" src="https://images.unsplash.com/photo-1609840114035-3c981b65dbb9?w=200&q=85" alt="Mr SC Vashist"/>
+        <h5>Mr. SC Vashist</h5>
+        <div class="celeb-role">VIP Patient, India</div>
+        <p>"Best dental experience of my life — painless, precise and absolutely professional."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 44 COUNTRIES -->
+<div class="countries-band">
+  <div class="container">
+    <div class="sec-h center light reveal up">
+      <div class="sec-chip white"><i class="fas fa-globe-asia"></i> Global Reach</div>
+      <div class="sec-divider" style="background:var(--gold)"></div>
+      <h2>Patients from <em>44+ Countries</em></h2>
+    </div>
+    <div class="countries-wrap reveal up">
+      <div class="c-globe">🌍</div>
+      <div>
+        <div class="countries-pills">
+          <span class="c-pill">🇺🇸 USA</span><span class="c-pill">🇬🇧 UK</span><span class="c-pill">🇨🇦 Canada</span><span class="c-pill">🇦🇺 Australia</span><span class="c-pill">🇦🇪 UAE</span><span class="c-pill">🇸🇬 Singapore</span><span class="c-pill">🇩🇪 Germany</span><span class="c-pill">🇫🇷 France</span><span class="c-pill">🇨🇭 Switzerland</span><span class="c-pill">🇳🇱 Netherlands</span><span class="c-pill">🇳🇿 New Zealand</span><span class="c-pill">🇯🇵 Japan</span><span class="c-pill">🇸🇦 Saudi Arabia</span><span class="c-pill">🇶🇦 Qatar</span><span class="c-pill">🇰🇼 Kuwait</span><span class="c-pill">🇧🇭 Bahrain</span><span class="c-pill">🇮🇱 Israel</span><span class="c-pill">🇦🇹 Austria</span><span class="c-pill">🇷🇺 Russia</span><span class="c-pill">🇿🇲 Zambia</span><span class="c-pill">🇦🇫 Afghanistan</span><span class="c-pill">🇰🇭 Cambodia</span><span class="c-pill">🇮🇪 Ireland</span><span class="c-pill">🇳🇴 Norway</span><span class="c-pill">🇳🇬 Nigeria</span><span class="c-pill">🇰🇪 Kenya</span><span class="c-pill">🇿🇦 South Africa</span><span class="c-pill">🇧🇩 Bangladesh</span><span class="c-pill">🇮🇩 Indonesia</span><span class="c-pill">🇲🇾 Malaysia</span><span class="c-pill">🇵🇭 Philippines</span><span class="c-pill">🇧🇷 Brazil</span><span class="c-pill">🇲🇽 Mexico</span><span class="c-pill">🇮🇹 Italy</span><span class="c-pill">🇪🇸 Spain</span><span class="c-pill">🇧🇪 Belgium</span><span class="c-pill">🇸🇪 Sweden</span><span class="c-pill">🇵🇹 Portugal</span><span class="c-pill">🇦🇷 Argentina</span><span class="c-pill">🇨🇳 China</span><span class="c-pill">🇰🇷 South Korea</span><span class="c-pill">🇴🇲 Oman</span><span class="c-pill">+ more</span>
+        </div>
+        <div class="counts-inline">
+          <div class="ci-item"><span class="ci-num">44+</span><span class="ci-lbl">Countries</span></div>
+          <div class="ci-item"><span class="ci-num">15K+</span><span class="ci-lbl">Patients</span></div>
+          <div class="ci-item"><span class="ci-num">Free</span><span class="ci-lbl">Video Consult</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand">Dr. Kathuria's <span>Dentistry</span></div>
+        <p class="f-tagline">E-143, East of Kailash, New Delhi. NABH Accredited · ISO Certified · 18+ Years of Excellence.</p>
+        <div class="f-social">
+          <a href="https://www.facebook.com/DrKathuriaDentistry" class="f-soc" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/drkathuriasdentistry" class="f-soc" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@dentalclinicindelhi" class="f-soc" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/919810936360" class="f-soc" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="f-col"><h5>About</h5><ul><li><a href="#team"><i class="fas fa-chevron-right"></i>Our Doctors</a></li><li><a href="#certifications"><i class="fas fa-chevron-right"></i>Certifications</a></li><li><a href="#timeline"><i class="fas fa-chevron-right"></i>Our Journey</a></li></ul></div>
+      <div class="f-col"><h5>Pages</h5><ul><li><a href="index.html"><i class="fas fa-chevron-right"></i>Home</a></li><li><a href="services.html"><i class="fas fa-chevron-right"></i>Services</a></li><li><a href="cases.html"><i class="fas fa-chevron-right"></i>Cases</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i>Contact</a></li></ul></div>
+      <div class="f-col">
+        <h5>Contact</h5>
+        <div class="f-contact">
+          <div class="f-ci"><i class="fas fa-phone-alt"></i><div><span>India Toll Free</span><strong>1800-11-7272</strong></div></div>
+          <div class="f-ci"><i class="fab fa-whatsapp"></i><div><span>WhatsApp</span><strong>+91 98109 36360</strong></div></div>
+          <div class="f-ci"><i class="fas fa-envelope"></i><div><span>Email</span><strong>info@delhidental.com</strong></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2024 Dr. Kathuria's Dentistry. All rights reserved.</span><div class="f-badges"><span class="f-badge">NABH</span><span class="f-badge">ISO</span><span class="f-badge">ADA</span></div></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919810936360" class="wa-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<button class="float-book-btn" id="floatBookBtn">BOOK APPOINTMENT</button>
+<div class="float-panel" id="floatPanel">
+  <button class="fp-close" id="fpClose"><i class="fas fa-times"></i></button>
+  <h3>Book Free Consultation</h3>
+  <p>We'll call back within 2 hours.</p>
+  <form class="smart-form">
+    <div class="fg"><label>Name</label><input type="text" required/></div>
+    <div class="fg"><label>WhatsApp / Phone</label><input type="tel" required/></div>
+    <div class="fg"><label>Treatment</label><select><option>Smile Makeover</option><option>Implants</option><option>Aligners</option><option>Whitening</option><option>Other</option></select></div>
+    <button type="submit" class="form-submit"><i class="fas fa-calendar-check"></i> Request Consultation</button>
+  </form>
+</div>
+<div class="lightbox" id="lightbox"><div class="lb-inner"><button class="lb-close" id="lbClose"><i class="fas fa-times"></i></button><img id="lbImg" src="" alt=""/></div></div>
+<div class="toast" id="toast"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

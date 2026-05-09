@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact & Book Appointment | Dr. Kathuria's Dentistry Delhi</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; }
+    @media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+    .contact-info-card { background: var(--navy); border-radius: var(--radius); padding: 44px; color: var(--white); }
+    .contact-info-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+    .contact-info-card > p { color: rgba(255,255,255,.7); font-size: .9rem; margin-bottom: 36px; line-height: 1.6; }
+    .c-info-items { display: flex; flex-direction: column; gap: 14px; }
+    .c-info-item { display: flex; gap: 16px; align-items: flex-start; padding: 18px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 10px; transition: background .25s; }
+    .c-info-item:hover { background: rgba(0,180,204,.12); border-color: rgba(0,180,204,.25); }
+    .c-info-ic { width: 44px; height: 44px; border-radius: 10px; background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.25); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.1rem; flex-shrink: 0; }
+    .c-info-item span { font-size: .7rem; color: rgba(255,255,255,.45); display: block; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .5px; }
+    .c-info-item strong { color: var(--white); font-size: .9rem; }
+    .c-info-item a { color: var(--teal); font-size: .8rem; display: block; margin-top: 3px; }
+    .c-social { display: flex; gap: 8px; margin-top: 28px; }
+    .c-soc { width: 40px; height: 40px; border-radius: 8px; background: rgba(255,255,255,.07); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: .95rem; transition: all .25s; }
+    .c-soc:hover { background: var(--teal); transform: translateY(-2px); }
+    .appt-form-card { background: var(--white); border-radius: var(--radius); padding: 44px; box-shadow: var(--shadow-l); }
+    .appt-form-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; color: var(--navy); }
+    .appt-form-card > p { color: var(--muted); font-size: .88rem; margin-bottom: 28px; }
+    .map-wrap { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .map-wrap iframe { width: 100%; height: 420px; border: none; display: block; }
+    .intl-phones { background: var(--navy); }
+    .phones-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+    @media(max-width:900px){.phones-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:500px){.phones-grid{grid-template-columns:1fr}}
+    .ph-box { padding: 40px 30px; border-right: 1px solid rgba(255,255,255,.06); text-align: center; transition: background .25s; }
+    .ph-box:last-child { border-right: none; }
+    .ph-box:hover { background: rgba(0,180,204,.08); }
+    .ph-flag { font-size: 2.4rem; margin-bottom: 12px; }
+    .ph-box h4 { color: var(--white); font-size: .95rem; font-weight: 700; margin-bottom: 6px; }
+    .ph-box a { color: var(--teal); font-size: .92rem; font-weight: 700; display: block; }
+    .ph-box a:hover { color: var(--gold-l); }
+    .ph-box p { color: rgba(255,255,255,.45); font-size: .74rem; margin-top: 4px; }
+    .vc-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    @media(max-width:800px){.vc-layout{grid-template-columns:1fr}}
+    .vc-video-box { background: rgba(0,0,0,.4); border-radius: var(--radius); overflow: hidden; }
+    .vc-ph { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg,rgba(15,34,72,.8),rgba(0,180,204,.4)); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; cursor: pointer; }
+    .vc-ph:hover .play-ring { transform: scale(1.1); }
+    .play-ring { width: 80px; height: 80px; border-radius: 50%; border: 2px solid rgba(255,255,255,.5); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--white); transition: transform .3s; background: rgba(255,255,255,.1); }
+    .vc-ph p { color: rgba(255,255,255,.8); font-size: .9rem; }
+    .vc-ph iframe { width: 100%; height: 100%; border: none; }
+    .vc-points-list { display: flex; flex-direction: column; gap: 22px; }
+    .vc-pt { display: flex; gap: 16px; }
+    .vc-pt-ic { width: 50px; height: 50px; border-radius: var(--radius); background: rgba(0,180,204,.15); border: 1px solid rgba(0,180,204,.3); display: flex; align-items: center; justify-content: center; color: var(--teal); font-size: 1.2rem; flex-shrink: 0; }
+    .vc-pt h4 { font-size: .95rem; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+    .vc-pt p  { font-size: .83rem; color: rgba(255,255,255,.7); line-height: 1.6; }
+    .faq-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+    @media(max-width:760px){.faq-2col{grid-template-columns:1fr}}
+    .rv-stars { color: var(--gold); font-size: .9rem; margin-bottom: 10px; }
+    .rv-av { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg,#4285F4,#34a853); display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 800; font-size: .95rem; flex-shrink: 0; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    @media(max-width:900px){.reviews-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.reviews-grid{grid-template-columns:1fr}}
+    .google-badge { background: linear-gradient(135deg,#4285F4,#34a853); border-radius: var(--radius); padding: 36px 44px; text-align: center; color: var(--white); }
+    .g-score { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 700; line-height: 1; }
+    .g-stars { font-size: 1.4rem; color: var(--gold); margin: 8px 0; }
+    .g-count { font-size: .85rem; opacity: .88; }
+  </style>
+</head>
+<body>
+<div id="page-loader"><div class="loader-inner"><div class="tooth">🦷</div><p>Loading…</p></div></div>
+<div class="cursor-glow"></div>
+
+<nav class="site-nav" id="mainNav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-mark"><i class="fas fa-tooth"></i></div>
+      <div class="logo-text"><strong>Dr. Kathuria's Dentistry</strong><span>East of Kailash, New Delhi</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="cases.html">Cases</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:18001177272"><i class="fas fa-phone-alt"></i> 1800-11-7272</a>
+      <button class="nav-cta" onclick="document.getElementById('apptForm').scrollIntoView({behavior:'smooth'})"><i class="fas fa-calendar-check"></i> Book Appointment</button>
+    </div>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="about.html"><i class="fas fa-user-md"></i> About Us</a>
+  <a href="services.html"><i class="fas fa-tooth"></i> Services</a>
+  <a href="cases.html"><i class="fas fa-images"></i> Cases</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  <a href="#apptForm" class="mobile-cta"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+</div>
+
+<div class="page-hero">
+  <img class="page-hero-img" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1920&q=85" alt="Contact Us"/>
+  <div class="page-hero-overlay" style="background:linear-gradient(135deg,rgba(15,34,72,.92) 0%,rgba(0,100,140,.55) 100%)"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Contact</span></div>
+    <h1>Get In <em>Touch</em><br/>With Us</h1>
+    <p>Book your free consultation — in-clinic or via video call. We'll respond within 2 hours.</p>
+  </div>
+</div>
+
+<!-- INTERNATIONAL PHONES -->
+<div class="intl-phones">
+  <div class="phones-grid">
+    <div class="ph-box"><div class="ph-flag">🇮🇳</div><h4>India (Toll Free)</h4><a href="tel:18001177272">1800-11-7272</a><p>Direct: +91 98110 26060</p></div>
+    <div class="ph-box"><div class="ph-flag">🇺🇸</div><h4>USA &amp; Canada</h4><a href="tel:+18889812145">+1 888 981 2145</a><p>WhatsApp available</p></div>
+    <div class="ph-box"><div class="ph-flag">🇬🇧</div><h4>United Kingdom</h4><a href="tel:+441970450032">+44 1970 450032</a><p>WhatsApp available</p></div>
+    <div class="ph-box"><div class="ph-flag">🇦🇺</div><h4>Australia</h4><a href="tel:+61384004931">+61 3 8400 4931</a><p>WhatsApp available</p></div>
+  </div>
+</div>
+
+<!-- CONTACT FORM + INFO -->
+<section id="apptForm">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info-card reveal left">
+        <h3>Contact Information</h3>
+        <p>Reach us by phone, WhatsApp, email or visit us at East of Kailash. International patients are welcome.</p>
+        <div class="c-info-items">
+          <div class="c-info-item"><div class="c-info-ic"><i class="fas fa-map-marker-alt"></i></div><div><span>Clinic Address</span><strong>E-143, East of Kailash, New Delhi – 110065, India</strong><a href="https://maps.google.com" target="_blank">Get Directions <i class="fas fa-arrow-right"></i></a></div></div>
+          <div class="c-info-item"><div class="c-info-ic"><i class="fas fa-phone-alt"></i></div><div><span>India Toll Free</span><strong>1800-11-7272</strong><a href="tel:+919811026060">Direct: +91 98110 26060</a></div></div>
+          <div class="c-info-item"><div class="c-info-ic"><i class="fab fa-whatsapp"></i></div><div><span>WhatsApp</span><strong>+91 98109 36360</strong><a href="https://wa.me/919810936360" target="_blank">Chat Now <i class="fas fa-arrow-right"></i></a></div></div>
+          <div class="c-info-item"><div class="c-info-ic"><i class="fas fa-envelope"></i></div><div><span>Email</span><strong>info@delhidental.com</strong><a href="mailto:info@delhidental.com">Send Email</a></div></div>
+          <div class="c-info-item"><div class="c-info-ic"><i class="fas fa-clock"></i></div><div><span>Clinic Hours</span><strong>Monday – Saturday: 10:00 AM – 7:00 PM</strong><a href="#">Sunday by appointment only</a></div></div>
+        </div>
+        <div class="c-social">
+          <a href="https://www.facebook.com/DrKathuriaDentistry" class="c-soc" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/drkathuriasdentistry" class="c-soc" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@dentalclinicindelhi" class="c-soc" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://twitter.com/Kathuriadentist" class="c-soc" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://wa.me/919810936360" class="c-soc" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="appt-form-card reveal right">
+        <h3>Book Free Consultation</h3>
+        <p>Fill in your details — we'll call or WhatsApp you within 2 hours to confirm your appointment.</p>
+        <form class="smart-form">
+          <div class="fg-row">
+            <div class="fg"><label>Full Name *</label><input type="text" placeholder="Your full name" required/></div>
+            <div class="fg"><label>Country</label><input type="text" placeholder="Your country"/></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label>WhatsApp / Phone *</label><input type="tel" placeholder="+91 or international" required/></div>
+            <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+          </div>
+          <div class="fg"><label>Treatment Interested In</label>
+            <select>
+              <option value="">Select treatment...</option>
+              <option>Smile Makeover / Veneers</option>
+              <option>Dental Implants / All-on-4</option>
+              <option>Clear / Invisible Aligners</option>
+              <option>Zoom Teeth Whitening</option>
+              <option>Root Canal Treatment</option>
+              <option>Full Mouth Rehabilitation</option>
+              <option>Laser Gum Treatment</option>
+              <option>Kids Dentistry</option>
+              <option>Video Consultation Only</option>
+              <option>General Checkup / Cleaning</option>
+              <option>Not Sure – Need Advice</option>
+            </select>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label>Preferred Date</label><input type="date"/></div>
+            <div class="fg"><label>Consultation Type</label>
+              <select>
+                <option>In-Clinic Visit</option>
+                <option>Video Consultation</option>
+                <option>WhatsApp Consultation</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg"><label>Message / X-ray Notes</label><textarea placeholder="Describe your concern, share X-ray details, or ask a question..."></textarea></div>
+          <button type="submit" class="form-submit"><i class="fas fa-calendar-check"></i> Book Free Consultation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="bg-off">
+  <div class="container">
+    <div class="sec-h center reveal up">
+      <div class="sec-chip"><i class="fas fa-map-marker-alt"></i> Find Us</div>
+      <div class="sec-divider"></div>
+      <h2>E-143, East of <em>Kailash</em>, New Delhi</h2>
+    </div>
+    <div class="map-wrap reveal up">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.9891498870855!2d77.2494!3d28.5601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3b8b9f1f6e7%3A0x0!2sEast%20of%20Kailash%2C%20New%20Delhi!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO CONSULTATION -->
+<section style="background:linear-gradient(135deg,var(--navy) 0%,var(--navy-l) 100%)" id="video">
+  <div class="container">
+    <div class="sec-h center light reveal up">
+      <div class="sec-chip white"><i class="fas fa-video"></i> Teledentistry</div>
+      <div class="sec-divider" style="background:var(--gold)"></div>
+      <h2>Video <em>Consultation</em></h2>
+      <p style="color:rgba(255,255,255,.75)">Get expert dental advice from anywhere in the world — free for all new patients.</p>
+    </div>
+    <div class="vc-layout reveal up">
+      <div class="vc-video-box">
+        <div class="vc-ph" id="vcPh" onclick="loadVideoConsult()">
+          <div class="play-ring"><i class="fas fa-play"></i></div>
+          <p>Watch Patient Video Testimonials</p>
+        </div>
+      </div>
+      <div class="vc-points-list">
+        <div class="vc-pt"><div class="vc-pt-ic"><i class="fas fa-video"></i></div><div><h4>Free 15-Minute Consultation</h4><p>Chat with Dr. Sween or Dr. Puneet Kathuria via Zoom, WhatsApp, or Google Meet — completely free.</p></div></div>
+        <div class="vc-pt"><div class="vc-pt-ic"><i class="fas fa-globe-asia"></i></div><div><h4>Serve Patients Worldwide</h4><p>Patients from 44+ countries have started their smile journey with a video consultation. Language support available.</p></div></div>
+        <div class="vc-pt"><div class="vc-pt-ic"><i class="fas fa-file-medical-alt"></i></div><div><h4>Share X-rays &amp; Reports</h4><p>Email or WhatsApp your dental records before the call for a personalised treatment plan with transparent cost estimate.</p></div></div>
+        <div class="vc-pt"><div class="vc-pt-ic"><i class="fas fa-smile"></i></div><div><h4>Virtual Smile Simulation</h4><p>See your new smile before treatment starts using our IVO digital smile simulation tool — at no extra cost.</p></div></div>
+        <a href="#apptForm" class="btn btn-gold" style="width:fit-content;margin-top:10px"><i class="fas fa-video"></i> Book Video Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="sec-h center reveal up">
+      <div class="sec-chip"><i class="fab fa-google"></i> Google Reviews</div>
+      <div class="sec-divider"></div>
+      <h2>Google <em>Reviews</em></h2>
+    </div>
+    <div style="display:flex;align-items:center;gap:40px;justify-content:center;flex-wrap:wrap;margin-bottom:50px" class="reveal up">
+      <div class="google-badge">
+        <div class="g-score">4.8</div>
+        <div class="g-stars">★★★★½</div>
+        <div class="g-count">2,400+ Verified Reviews</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;gap:12px;background:var(--white);border-radius:var(--radius);padding:14px 20px;box-shadow:var(--shadow);font-size:.88rem;font-weight:600;color:var(--navy)"><i class="fab fa-google" style="color:#4285F4;font-size:1.2rem"></i> Verified Google Business Profile</div>
+        <div style="display:flex;align-items:center;gap:12px;background:var(--white);border-radius:var(--radius);padding:14px 20px;box-shadow:var(--shadow);font-size:.88rem;font-weight:600;color:var(--navy)"><i class="fas fa-award" style="color:var(--teal);font-size:1.2rem"></i> NDTV – 5 Best Dental Clinics in Delhi</div>
+        <div style="display:flex;align-items:center;gap:12px;background:var(--white);border-radius:var(--radius);padding:14px 20px;box-shadow:var(--shadow);font-size:.88rem;font-weight:600;color:var(--navy)"><i class="fas fa-certificate" style="color:var(--gold);font-size:1.2rem"></i> NABH Accredited · ISO Certified</div>
+      </div>
+    </div>
+    <div class="reviews-grid reveal up">
+      <div class="rv-card"><div class="rv-head"><div class="rv-av">B</div><div class="rv-meta"><h5>Bill Yakimec</h5><span>Canada</span></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">"Experience was exceptional. Veneers, crowns, fillings. Dr. Kathuria and team are world-class."</p><div class="rv-footer"><i class="fab fa-google" style="color:#4285F4"></i> Google Review <span class="rv-verified">✓ Verified</span></div></div>
+      <div class="rv-card"><div class="rv-head"><div class="rv-av">K</div><div class="rv-meta"><h5>Kyle Steller</h5><span>USA</span></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">"Best dental care I have ever received. Staff is incredibly friendly and Dr. Kathuria is thorough."</p><div class="rv-footer"><i class="fab fa-google" style="color:#4285F4"></i> Google Review <span class="rv-verified">✓ Verified</span></div></div>
+      <div class="rv-card"><div class="rv-head"><div class="rv-av">M</div><div class="rv-meta"><h5>Marlene Powell</h5><span>USA</span></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">"She gave me a new smile which I thought was impossible. Absolutely brilliant work by Dr. Kathuria."</p><div class="rv-footer"><i class="fab fa-google" style="color:#4285F4"></i> Google Review <span class="rv-verified">✓ Verified</span></div></div>
+      <div class="rv-card"><div class="rv-head"><div class="rv-av">D</div><div class="rv-meta"><h5>Donald McLean</h5><span>UK</span></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">"Multiple implants and crowns done. Completely painless. Fantastic results. Cannot recommend enough."</p><div class="rv-footer"><i class="fab fa-google" style="color:#4285F4"></i> Google Review <span class="rv-verified">✓ Verified</span></div></div>
+      <div class="rv-card"><div class="rv-head"><div class="rv-av">F</div><div class="rv-meta"><h5>Felicity Dindiwe</h5><span>Zambia</span></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">"Travelled from Zambia specifically for implant treatment. Price and quality unmatched. Life-changing!"</p><div class="rv-footer"><i class="fab fa-google" style="color:#4285F4"></i> Google Review <span class="rv-verified">✓ Verified</span></div></div>
+      <div class="rv-card"><div class="rv-head"><div class="rv-av">V</div><div class="rv-meta"><h5>Vera Fritsch</h5><span>Embassy of Austria</span></div></div><div class="rv-stars">★★★★★</div><p class="rv-text">"Embassy staff have been patients for years. Consistently excellent care and immaculate hygiene."</p><div class="rv-footer"><i class="fab fa-google" style="color:#4285F4"></i> Google Review <span class="rv-verified">✓ Verified</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-off" id="faq">
+  <div class="container">
+    <div class="sec-h center reveal up">
+      <div class="sec-chip"><i class="fas fa-question-circle"></i> FAQ</div>
+      <div class="sec-divider"></div>
+      <h2>Frequently Asked <em>Questions</em></h2>
+    </div>
+    <div class="faq-2col reveal up">
+      <div>
+        <div class="faq-item"><button class="faq-q">How do I book a video consultation? <i class="fas fa-chevron-down"></i></button><div class="faq-ans">Fill the contact form above or WhatsApp us at +91 98109 36360. We'll schedule a free 15-minute video call via Zoom, Google Meet or WhatsApp at a time convenient for you.</div></div>
+        <div class="faq-item"><button class="faq-q">How long does a smile makeover take? <i class="fas fa-chevron-down"></i></button><div class="faq-ans">A Hollywood smile makeover using porcelain veneers typically takes 3–5 days. This includes consultation, impressions, shade selection and final placement — ideal for international patients.</div></div>
+        <div class="faq-item"><button class="faq-q">Do you offer payment plans / EMI? <i class="fas fa-chevron-down"></i></button><div class="faq-ans">Yes. We offer flexible EMI options for major treatments. 0% EMI is available on select treatments. International patients can pay via wire transfer, credit card or PayPal.</div></div>
+        <div class="faq-item"><button class="faq-q">Is treatment painful? <i class="fas fa-chevron-down"></i></button><div class="faq-ans">We use the latest anaesthetic techniques, endomotors and laser technology to ensure painless treatment. The vast majority of our patients report minimal or no discomfort during procedures.</div></div>
+      </div>
+      <div>
+        <div class="faq-item"><button class="faq-q">Do you assist international patients with travel? <i class="fas fa-chevron-down"></i></button><div class="faq-ans">Yes! We offer a complete international patient concierge service — hotel recommendations, airport transfers, treatment scheduling and follow-up support. We serve patients from 44+ countries.</div></div>
+        <div class="faq-item"><button class="faq-q">What sterilisation standards do you follow? <i class="fas fa-chevron-down"></i></button><div class="faq-ans">We follow hospital-grade sterilisation: Biosonic ultrasonic cleaning, Faro Class B autoclave, self-sealing pouches and have a University of Louisville USA monitoring tie-up. We are NABH, ISO and OSHA compliant.</div></div>
+        <div class="faq-item"><button class="faq-q">Can I see my new smile before treatment? <i class="fas fa-chevron-down"></i></button><div class="faq-ans">Absolutely. We use IVO Smile Simulation technology to give you a digital preview of your new smile before any treatment begins — no obligation.</div></div>
+        <div class="faq-item"><button class="faq-q">Is the first consultation really free? <i class="fas fa-chevron-down"></i></button><div class="faq-ans">Yes — both in-clinic and video consultations are completely free for all new patients. There is no obligation to book treatment after the consultation.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand">Dr. Kathuria's <span>Dentistry</span></div>
+        <p class="f-tagline">E-143, East of Kailash, New Delhi – 110065, India. NABH Accredited · ISO Certified · 18+ Years.</p>
+        <div class="f-social">
+          <a href="https://www.facebook.com/DrKathuriaDentistry" class="f-soc" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/drkathuriasdentistry" class="f-soc" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@dentalclinicindelhi" class="f-soc" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/919810936360" class="f-soc" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="f-col"><h5>Quick Links</h5><ul><li><a href="index.html"><i class="fas fa-chevron-right"></i>Home</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i>About</a></li><li><a href="services.html"><i class="fas fa-chevron-right"></i>Services</a></li><li><a href="cases.html"><i class="fas fa-chevron-right"></i>Cases</a></li></ul></div>
+      <div class="f-col"><h5>Treatments</h5><ul><li><a href="services.html#cosmetic"><i class="fas fa-chevron-right"></i>Smile Makeover</a></li><li><a href="services.html#implants"><i class="fas fa-chevron-right"></i>Implants</a></li><li><a href="services.html#whitening"><i class="fas fa-chevron-right"></i>Whitening</a></li><li><a href="services.html#aligners"><i class="fas fa-chevron-right"></i>Aligners</a></li></ul></div>
+      <div class="f-col">
+        <h5>Contact</h5>
+        <div class="f-contact">
+          <div class="f-ci"><i class="fas fa-phone-alt"></i><div><span>India Toll Free</span><strong>1800-11-7272</strong></div></div>
+          <div class="f-ci"><i class="fab fa-whatsapp"></i><div><span>WhatsApp</span><strong>+91 98109 36360</strong></div></div>
+          <div class="f-ci"><i class="fas fa-phone-alt"></i><div><span>USA / Canada</span><strong>+1 888 981 2145</strong></div></div>
+          <div class="f-ci"><i class="fas fa-phone-alt"></i><div><span>UK</span><strong>+44 1970 450032</strong></div></div>
+          <div class="f-ci"><i class="fas fa-envelope"></i><div><span>Email</span><strong>info@delhidental.com</strong></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2024 Dr. Kathuria's Dentistry – U and K Oral Wellness LLP. All rights reserved.</span><div class="f-badges"><span class="f-badge">NABH Accredited</span><span class="f-badge">ISO Certified</span><span class="f-badge">ADA Standards</span><span class="f-badge">OSHA</span></div></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919810936360" class="wa-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div class="lightbox" id="lightbox"><div class="lb-inner"><button class="lb-close" id="lbClose"><i class="fas fa-times"></i></button><img id="lbImg" src="" alt=""/></div></div>
+<div class="toast" id="toast"></div>
+<script src="js/main.js"></script>
+<script>
+function loadVideoConsult() {
+  const ph = document.getElementById('vcPh');
+  const iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+  iframe.allow = 'autoplay; fullscreen'; iframe.frameBorder = '0'; iframe.style.cssText = 'width:100%;aspect-ratio:16/9;border:none;display:block';
+  ph.parentNode.replaceChild(iframe, ph);
+}
+</script>
+</body>
+</html>

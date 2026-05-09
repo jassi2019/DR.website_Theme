@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Dental Services & Treatments | Dr. Kathuria's Dentistry Delhi</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+    .tab-btn { background: var(--white); border: 2px solid var(--border); color: var(--muted); padding: 9px 22px; border-radius: 50px; font-family: inherit; font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .25s; }
+    .tab-btn.active, .tab-btn:hover { background: var(--navy); border-color: var(--navy); color: var(--white); }
+    .tech-band { background: var(--navy); padding: 90px 5%; }
+    .tech-items { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    @media(max-width:900px){.tech-items{grid-template-columns:1fr 1fr}}
+    @media(max-width:500px){.tech-items{grid-template-columns:1fr}}
+    .tech-box { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 28px; transition: all .3s; }
+    .tech-box:hover { background: rgba(0,180,204,.12); border-color: rgba(0,180,204,.3); transform: translateY(-6px); }
+    .tech-box img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 16px; }
+    .tech-box h4 { font-size: .95rem; font-weight: 700; margin-bottom: 8px; color: var(--teal); }
+    .tech-box p  { font-size: .82rem; color: rgba(255,255,255,.65); line-height: 1.6; }
+    .calc-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .calc-item label { display: flex; align-items: center; gap: 12px; cursor: pointer; color: rgba(255,255,255,.82); font-size: .88rem; }
+    .calc-item input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--teal); cursor: pointer; }
+    .calc-item .item-price { color: var(--teal); font-weight: 700; font-size: .88rem; white-space: nowrap; }
+    .calc-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; align-items: start; }
+    @media(max-width:900px){.calc-wrap{grid-template-columns:1fr}}
+    .calc-info-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 24px; margin-bottom: 18px; }
+    .calc-info-card h4 { color: var(--gold-l); font-size: .92rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .calc-info-card p  { color: rgba(255,255,255,.62); font-size: .83rem; line-height: 1.65; }
+  </style>
+</head>
+<body>
+<div id="page-loader"><div class="loader-inner"><div class="tooth">🦷</div><p>Loading…</p></div></div>
+<div class="cursor-glow"></div>
+
+<nav class="site-nav" id="mainNav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-mark"><i class="fas fa-tooth"></i></div>
+      <div class="logo-text"><strong>Dr. Kathuria's Dentistry</strong><span>East of Kailash, New Delhi</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services <i class="fas fa-chevron-down chevron"></i></a>
+        <div class="nav-dropdown">
+          <a href="#cosmetic"><i class="fas fa-star"></i>Cosmetic Dentistry</a>
+          <a href="#implants"><i class="fas fa-tooth"></i>Dental Implants</a>
+          <a href="#aligners"><i class="fas fa-align-center"></i>Clear Aligners</a>
+          <a href="#whitening"><i class="fas fa-sun"></i>Teeth Whitening</a>
+          <a href="#rct"><i class="fas fa-syringe"></i>Root Canal</a>
+          <a href="#gums"><i class="fas fa-leaf"></i>Gum Treatment</a>
+        </div>
+      </li>
+      <li><a href="cases.html">Cases</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:18001177272"><i class="fas fa-phone-alt"></i> 1800-11-7272</a>
+      <button class="nav-cta" onclick="document.getElementById('floatPanel').classList.add('open')"><i class="fas fa-calendar-check"></i> Book Free Consult</button>
+    </div>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="about.html"><i class="fas fa-user-md"></i> About Us</a>
+  <a href="services.html"><i class="fas fa-tooth"></i> Services</a>
+  <a href="cases.html"><i class="fas fa-images"></i> Cases</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  <a href="contact.html" class="mobile-cta"><i class="fas fa-calendar-check"></i> Book Free Consultation</a>
+</div>
+
+<div class="page-hero">
+  <img class="page-hero-img" src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1920&q=85" alt="Dental Services"/>
+  <div class="page-hero-overlay" style="background:linear-gradient(135deg,rgba(15,34,72,.92) 0%,rgba(0,100,140,.55) 100%)"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Services</span></div>
+    <h1>50+ Dental <em>Treatments</em><br/>Under One Roof</h1>
+    <p>From a routine clean to a complete smile transformation — comprehensive dental care using the latest technology.</p>
+    <a href="#cosmetic" class="btn btn-gold"><i class="fas fa-arrow-down"></i> Explore Treatments</a>
+  </div>
+</div>
+
+<!-- ALL SERVICES GRID -->
+<section>
+  <div class="container">
+    <div class="sec-h center reveal up">
+      <div class="sec-chip"><i class="fas fa-tooth"></i> All Treatments</div>
+      <div class="sec-divider"></div>
+      <h2>Our <em>Complete</em> Treatment Menu</h2>
+    </div>
+    <div class="filter-bar reveal up" data-target="#srvGrid">
+      <button class="tab-btn active" data-filter="all">All Treatments</button>
+      <button class="tab-btn" data-filter="cosmetic">Cosmetic</button>
+      <button class="tab-btn" data-filter="implants">Implants</button>
+      <button class="tab-btn" data-filter="aligners">Orthodontics</button>
+      <button class="tab-btn" data-filter="whitening">Whitening</button>
+      <button class="tab-btn" data-filter="rct">Root Canal</button>
+      <button class="tab-btn" data-filter="gums">Gums</button>
+      <button class="tab-btn" data-filter="kids">Kids</button>
+    </div>
+    <div class="srv-grid-3" id="srvGrid">
+
+      <div class="srv-card reveal up d1" data-category="cosmetic" id="cosmetic">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1609840114035-3c981b65dbb9?w=600&q=85" alt="Smile Makeover"/><div class="srv-img-overlay"></div><span class="srv-badge">Cosmetic</span></div>
+        <div class="srv-body"><h4>Smile Makeover / Veneers</h4><p>No-prep porcelain veneers, composite bonding, gap closure, cosmetic contouring. Transform your smile in 3–5 days.</p><div class="srv-foot"><strong>₹18,000/tooth</strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d2" data-category="implants" id="implants">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85" alt="Dental Implants"/><div class="srv-img-overlay"></div><span class="srv-badge">Implants</span></div>
+        <div class="srv-body"><h4>Nobel Replace Implants</h4><p>Single, multiple or All-on-4. Nobel Guide computer-guided surgery. 3D digital planning. Lifetime guarantee.</p><div class="srv-foot"><strong>₹29,500 onwards</strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d3" data-category="whitening" id="whitening">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=600&q=85" alt="Zoom Whitening"/><div class="srv-img-overlay"></div><span class="srv-badge">Whitening</span></div>
+        <div class="srv-body"><h4>Zoom Advanced Whitening</h4><p>Zoom Advanced Power — up to 8 shades whiter in 60 minutes. Includes take-home whitening kit.</p><div class="srv-foot"><strong>₹15,000 <span class="price-orig">₹20,000</span></strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d1" data-category="aligners" id="aligners">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1523952578875-e6bb16c70f48?w=600&q=85" alt="Clear Aligners"/><div class="srv-img-overlay"></div><span class="srv-badge">Orthodontics</span></div>
+        <div class="srv-body"><h4>Clear / Invisible Aligners</h4><p>Removable invisible aligners. Digital intraoral scan — no messy putty. Retainers included.</p><div class="srv-foot"><strong>₹75,000</strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d2" data-category="rct" id="rct">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&q=85" alt="Root Canal"/><div class="srv-img-overlay"></div><span class="srv-badge">Root Canal</span></div>
+        <div class="srv-body"><h4>Microscopic Root Canal</h4><p>Single-sitting painless RCT using dental microscope and latest endomotors. Crown included in package.</p><div class="srv-foot"><strong>₹6,000 onwards</strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d3" data-category="gums" id="gums">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=85" alt="Laser Gum"/><div class="srv-img-overlay"></div><span class="srv-badge">Laser Gums</span></div>
+        <div class="srv-body"><h4>Laser Gum Treatment</h4><p>Laser gummy smile correction, gum depigmentation, Piezon deep cleaning, socket preservation therapy.</p><div class="srv-foot"><strong>₹5,000 onwards</strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d1" data-category="cosmetic aligners">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=85" alt="Ceramic Braces"/><div class="srv-img-overlay"></div><span class="srv-badge">Orthodontics</span></div>
+        <div class="srv-body"><h4>Ceramic / Lingual Braces</h4><p>Tooth-coloured ceramic braces or fully hidden lingual braces for discreet orthodontic treatment.</p><div class="srv-foot"><strong>₹55,000 onwards</strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d2" data-category="cosmetic">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1588776814546-1ffedebf5f6f?w=600&q=85" alt="Crowns & Bridges"/><div class="srv-img-overlay"></div><span class="srv-badge">Restorative</span></div>
+        <div class="srv-body"><h4>Crowns &amp; Bridges</h4><p>CEREC same-day ceramic crowns, zirconia crowns, fixed bridges. Designed &amp; milled chairside in one visit.</p><div class="srv-foot"><strong>₹12,000/unit</strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d3" data-category="kids" id="kids">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1609840114035-3c981b65dbb9?w=600&q=85" alt="Kids Dentistry"/><div class="srv-img-overlay"></div><span class="srv-badge">Kids</span></div>
+        <div class="srv-body"><h4>Kids / Paediatric Dentistry</h4><p>Fluoride fillings, kids root canal, fluoride applications, tooth sealants. Gentle, child-friendly care.</p><div class="srv-foot"><strong>₹1,500 onwards</strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d1" data-category="implants">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=85" alt="Wisdom Tooth"/><div class="srv-img-overlay"></div><span class="srv-badge">Surgery</span></div>
+        <div class="srv-body"><h4>Wisdom Tooth Removal</h4><p>Simple or surgical extraction. Digital X-ray included. Post-op care kit. Same-day appointments possible.</p><div class="srv-foot"><strong>₹7,800 <span class="price-orig">₹10,000</span></strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d2" data-category="gums">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=85" alt="Full Mouth Rehab"/><div class="srv-img-overlay"></div><span class="srv-badge">Premium</span></div>
+        <div class="srv-body"><h4>Full Mouth Rehabilitation</h4><p>All-on-4 / All-on-6 fixed teeth in 3 days. 3D surgical planning. Lifetime guarantee. International concierge.</p><div class="srv-foot"><strong>₹1,80,000 onwards</strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+
+      <div class="srv-card reveal up d3" data-category="cosmetic">
+        <div class="srv-img"><img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=600&q=85" alt="Oral Cancer Check"/><div class="srv-img-overlay"></div><span class="srv-badge">Diagnostic</span></div>
+        <div class="srv-body"><h4>Oral Cancer Detection</h4><p>Early oral cancer screening, digital panoramic X-ray, CBCT 3D scan. Comprehensive diagnostic evaluation.</p><div class="srv-foot"><strong>₹2,500 onwards</strong><a href="contact.html">Book Now <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TABLE -->
+<section id="charges" class="bg-off">
+  <div class="container">
+    <div class="sec-h center reveal up">
+      <div class="sec-chip"><i class="fas fa-rupee-sign"></i> Transparent Pricing</div>
+      <div class="sec-divider"></div>
+      <h2>Treatment <em>Charges</em></h2>
+      <p>All prices are indicative. Final charges are determined after clinical examination. EMI options available.</p>
+    </div>
+    <div class="reveal up" style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)">
+      <table class="price-table">
+        <thead><tr><th>Treatment</th><th>Duration</th><th>Our Price</th></tr></thead>
+        <tbody>
+          <tr><td>Smile Makeover / Veneers (per tooth)</td><td>3–5 Days</td><td>₹18,000 <span class="price-orig">₹25,000</span></td></tr>
+          <tr><td>Zoom Advanced Whitening</td><td>60 Min</td><td>₹15,000 <span class="price-orig">₹20,000</span></td></tr>
+          <tr><td>Nobel Replace Dental Implant (per implant)</td><td>3–6 Months</td><td>₹29,500 <span class="price-orig">₹35,000</span></td></tr>
+          <tr><td>All-on-4 Full Arch Implants</td><td>3–5 Days</td><td>₹1,80,000+</td></tr>
+          <tr><td>Clear / Invisible Aligners (full treatment)</td><td>9–18 Months</td><td>₹75,000+</td></tr>
+          <tr><td>Microscopic Root Canal (per tooth)</td><td>1–2 Visits</td><td>₹6,000+</td></tr>
+          <tr><td>Ceramic / Zirconia Crown (CEREC)</td><td>1 Day</td><td>₹12,000+</td></tr>
+          <tr><td>Laser Gummy Smile Correction</td><td>30–60 Min</td><td>₹12,000+</td></tr>
+          <tr><td>Wisdom Tooth Removal</td><td>30 Min</td><td>₹7,800 <span class="price-orig">₹10,000</span></td></tr>
+          <tr><td>Full Mouth Scaling &amp; Polishing</td><td>60 Min</td><td>₹2,500+</td></tr>
+          <tr><td>Ceramic / Lingual Braces</td><td>12–24 Months</td><td>₹55,000+</td></tr>
+          <tr><td>Kids Dentistry (consultation)</td><td>30 Min</td><td>₹500+</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:.8rem;color:var(--muted)">All prices in INR. International patients save 60–80% vs US/UK/AU pricing.</p>
+  </div>
+</section>
+
+<!-- TECHNOLOGY BAND -->
+<div class="tech-band">
+  <div class="container">
+    <div class="sec-h center light reveal up">
+      <div class="sec-chip white"><i class="fas fa-microchip"></i> Advanced Tech</div>
+      <div class="sec-divider" style="background:var(--gold)"></div>
+      <h2>Technology That Sets <em>Us Apart</em></h2>
+    </div>
+    <div class="tech-items">
+      <div class="tech-box reveal up d1">
+        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=400&q=85" alt="CEREC"/>
+        <h4>CEREC Chairside Scanners</h4>
+        <p>Same-day ceramic crowns milled in our clinic. No messy putty — digital impressions in 60 seconds.</p>
+      </div>
+      <div class="tech-box reveal up d2">
+        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&q=85" alt="Microscope"/>
+        <h4>Dental Microscope</h4>
+        <p>High-magnification microscope for root canals and precision restorations — unmatched accuracy.</p>
+      </div>
+      <div class="tech-box reveal up d3">
+        <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=400&q=85" alt="Zoom Whitening"/>
+        <h4>Zoom Advanced Power</h4>
+        <p>Instant teeth whitening technology — 8 shades whiter in a single 60-minute session.</p>
+      </div>
+      <div class="tech-box reveal up d4">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&q=85" alt="3D Planning"/>
+        <h4>DTX Implant Studio</h4>
+        <p>3D digital planning for Nobel Guide computer-guided implant surgery — sub-millimetre accuracy.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COST CALCULATOR -->
+<section id="calculator" class="calc-section">
+  <div class="container">
+    <div class="sec-h center light reveal up">
+      <div class="sec-chip white"><i class="fas fa-calculator"></i> Unique Feature</div>
+      <div class="sec-divider" style="background:var(--gold)"></div>
+      <h2>Smile <em>Cost Calculator</em></h2>
+      <p style="color:rgba(255,255,255,.72)">Select the treatments you need and get an instant estimate. No hidden costs.</p>
+    </div>
+    <div class="calc-wrap reveal up">
+      <div class="calc-panel" id="calcPanel">
+        <h3><i class="fas fa-list-check" style="color:var(--teal);margin-right:8px"></i>Select Your Treatments</h3>
+        <div class="calc-row"><label><input type="checkbox" data-price="18000" data-savings="7000"/> Smile Makeover / Veneers (per tooth)</label><span class="price">₹18,000</span></div>
+        <div class="calc-row"><label><input type="checkbox" data-price="15000" data-savings="5000"/> Zoom Whitening</label><span class="price">₹15,000</span></div>
+        <div class="calc-row"><label><input type="checkbox" data-price="29500" data-savings="5500"/> Nobel Implant (per tooth)</label><span class="price">₹29,500</span></div>
+        <div class="calc-row"><label><input type="checkbox" data-price="75000" data-savings="25000"/> Clear Aligners (full)</label><span class="price">₹75,000</span></div>
+        <div class="calc-row"><label><input type="checkbox" data-price="6000" data-savings="2000"/> Root Canal</label><span class="price">₹6,000</span></div>
+        <div class="calc-row"><label><input type="checkbox" data-price="12000" data-savings="4000"/> Ceramic Crown (CEREC)</label><span class="price">₹12,000</span></div>
+        <div class="calc-row"><label><input type="checkbox" data-price="7800" data-savings="2200"/> Wisdom Tooth Removal</label><span class="price">₹7,800</span></div>
+        <div class="calc-row"><label><input type="checkbox" data-price="180000" data-savings="50000"/> All-on-4 Full Mouth</label><span class="price">₹1,80,000</span></div>
+        <div class="calc-total">
+          <div class="lbl">Your Estimated Total</div>
+          <span class="amount" id="calcTotal">₹ 0</span>
+          <div class="saving" id="calcSavings"></div>
+        </div>
+        <p class="calc-note">* Final charges determined after clinical examination. This is an indicative estimate only.</p>
+      </div>
+      <div class="calc-info">
+        <div class="calc-info-card">
+          <h4><i class="fas fa-globe-asia"></i> Save 60–80% vs International Pricing</h4>
+          <p>A smile makeover in the USA or UK can cost $15,000–$30,000. At Dr. Kathuria's Dentistry, you get the same world-class result for a fraction of the price — using the same materials and technology.</p>
+        </div>
+        <div class="calc-info-card">
+          <h4><i class="fas fa-credit-card"></i> EMI &amp; Payment Options</h4>
+          <p>We offer flexible EMI options for major treatments. 0% EMI available on select treatments. International patients can pay via wire transfer, credit card or PayPal.</p>
+        </div>
+        <div class="calc-info-card">
+          <h4><i class="fas fa-plane"></i> International Patient Package</h4>
+          <p>Flying in for treatment? We assist with hotel recommendations, airport transfers, and treatment scheduling so your dental trip is stress-free and efficient.</p>
+        </div>
+        <a href="contact.html" class="btn btn-gold" style="width:100%;justify-content:center"><i class="fas fa-calendar-check"></i> Get Personalised Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand">Dr. Kathuria's <span>Dentistry</span></div>
+        <p class="f-tagline">E-143, East of Kailash, New Delhi. NABH Accredited · ISO Certified · 18+ Years.</p>
+        <div class="f-social">
+          <a href="https://www.facebook.com/DrKathuriaDentistry" class="f-soc" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/drkathuriasdentistry" class="f-soc" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@dentalclinicindelhi" class="f-soc" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/919810936360" class="f-soc" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="f-col"><h5>Treatments</h5><ul><li><a href="#cosmetic"><i class="fas fa-chevron-right"></i>Smile Makeover</a></li><li><a href="#implants"><i class="fas fa-chevron-right"></i>Implants</a></li><li><a href="#aligners"><i class="fas fa-chevron-right"></i>Aligners</a></li><li><a href="#whitening"><i class="fas fa-chevron-right"></i>Whitening</a></li><li><a href="#rct"><i class="fas fa-chevron-right"></i>Root Canal</a></li><li><a href="#gums"><i class="fas fa-chevron-right"></i>Gum Laser</a></li></ul></div>
+      <div class="f-col"><h5>Pages</h5><ul><li><a href="index.html"><i class="fas fa-chevron-right"></i>Home</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i>About Us</a></li><li><a href="cases.html"><i class="fas fa-chevron-right"></i>Cases</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i>Contact</a></li></ul></div>
+      <div class="f-col">
+        <h5>Contact</h5>
+        <div class="f-contact">
+          <div class="f-ci"><i class="fas fa-phone-alt"></i><div><span>India Toll Free</span><strong>1800-11-7272</strong></div></div>
+          <div class="f-ci"><i class="fab fa-whatsapp"></i><div><span>WhatsApp</span><strong>+91 98109 36360</strong></div></div>
+          <div class="f-ci"><i class="fas fa-phone-alt"></i><div><span>USA / Canada</span><strong>+1 888 981 2145</strong></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2024 Dr. Kathuria's Dentistry. All rights reserved.</span><div class="f-badges"><span class="f-badge">NABH</span><span class="f-badge">ISO</span><span class="f-badge">ADA</span></div></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919810936360" class="wa-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<button class="float-book-btn" id="floatBookBtn">BOOK APPOINTMENT</button>
+<div class="float-panel" id="floatPanel">
+  <button class="fp-close" id="fpClose"><i class="fas fa-times"></i></button>
+  <h3>Book Free Consultation</h3>
+  <p>We'll call back within 2 hours.</p>
+  <form class="smart-form">
+    <div class="fg"><label>Name</label><input type="text" required/></div>
+    <div class="fg"><label>WhatsApp / Phone</label><input type="tel" required/></div>
+    <div class="fg"><label>Treatment</label><select><option>Smile Makeover</option><option>Implants</option><option>Aligners</option><option>Whitening</option><option>Other</option></select></div>
+    <button type="submit" class="form-submit"><i class="fas fa-calendar-check"></i> Request Consultation</button>
+  </form>
+</div>
+<div class="lightbox" id="lightbox"><div class="lb-inner"><button class="lb-close" id="lbClose"><i class="fas fa-times"></i></button><img id="lbImg" src="" alt=""/></div></div>
+<div class="toast" id="toast"></div>
+<script src="js/main.js"></script>
+</body>
+</html>
